@@ -13,19 +13,10 @@
         body {
             font-family: 'Inter', sans-serif;
             background-color: #111827; /* Fundo principal escuro */
-            color: #F3F4F6; /* Cor de texto principal */
-        }
-        .bg-hero {
-            background-image: url('https://i.imgur.com/tUBiTM7.png');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-        }
-        .bg-hero-overlay {
-            background-color: rgba(17, 24, 39, 0.85); /* Overlay mais escuro */
+            color: #F9FAFB; /* Texto principal claro */
         }
         .text-custom-gold {
-            color: #D4AF37; /* Dourado */
+            color: #D4AF37; /* Dourado/Amarelo Queimado */
         }
         .bg-custom-gold {
             background-color: #D4AF37;
@@ -33,47 +24,78 @@
         .border-custom-gold {
             border-color: #D4AF37;
         }
+        .hero-section {
+            background-image: url('https://i.imgur.com/tUBiTM7.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .hero-overlay {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        /* Animações */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .animate-fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-in-out forwards;
+        }
     </style>
 </head>
-<body class="antialiased">
+<body class="bg-gray-900 text-gray-100">
 
     <!-- Cabeçalho -->
-    <header id="inicio" class="bg-gray-900/80 backdrop-blur-sm fixed w-full z-50 top-0 shadow-lg">
+    <header id="inicio" class="bg-gray-900/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 shadow-md">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#inicio" class="text-2xl font-black text-white">Impulso <span class="text-custom-gold">Barber</span></a>
             
             <!-- Menu Desktop -->
             <nav class="hidden md:flex items-center space-x-8">
                 <a href="#inicio" class="text-gray-300 hover:text-custom-gold transition-colors duration-300">Início</a>
-                <a href="#servicos" class="text-gray-300 hover:text-custom-gold transition-colors duration-300">Meus Serviços</a>
-                <a href="#planos" class="text-gray-300 hover:text-custom-gold transition-colors duration-300">Planos</a>
+                <a href="#servicos" class="text-gray-300 hover:text-custom-gold transition-colors duration-300">Serviços</a>
+                 <a href="#planos" class="text-gray-300 hover:text-custom-gold transition-colors duration-300">Planos</a>
                 <a href="#portfolio" class="text-gray-300 hover:text-custom-gold transition-colors duration-300">Portfólio</a>
                 <a href="#contato" class="text-gray-300 hover:text-custom-gold transition-colors duration-300">Contato</a>
             </nav>
 
-            <!-- Botão Menu Mobile -->
+            <!-- Botão Mobile -->
             <button id="mobile-menu-button" class="md:hidden text-white">
                 <i data-lucide="menu" class="w-6 h-6"></i>
             </button>
         </div>
-
-        <!-- Menu Mobile (oculto por padrão) -->
+        <!-- Menu Mobile -->
         <div id="mobile-menu" class="hidden md:hidden bg-gray-900">
-            <a href="#inicio" class="block text-center py-3 px-6 text-gray-300 hover:bg-gray-800 hover:text-custom-gold transition-colors duration-300">Início</a>
-            <a href="#servicos" class="block text-center py-3 px-6 text-gray-300 hover:bg-gray-800 hover:text-custom-gold transition-colors duration-300">Meus Serviços</a>
-            <a href="#planos" class="block text-center py-3 px-6 text-gray-300 hover:bg-gray-800 hover:text-custom-gold transition-colors duration-300">Planos</a>
-            <a href="#portfolio" class="block text-center py-3 px-6 text-gray-300 hover:bg-gray-800 hover:text-custom-gold transition-colors duration-300">Portfólio</a>
-            <a href="#contato" class="block text-center py-3 px-6 text-gray-300 hover:bg-gray-800 hover:text-custom-gold transition-colors duration-300">Contato</a>
+            <a href="#inicio" class="block py-2 px-6 text-gray-300 hover:bg-gray-800">Início</a>
+            <a href="#servicos" class="block py-2 px-6 text-gray-300 hover:bg-gray-800">Serviços</a>
+            <a href="#planos" class="block py-2 px-6 text-gray-300 hover:bg-gray-800">Planos</a>
+            <a href="#portfolio" class="block py-2 px-6 text-gray-300 hover:bg-gray-800">Portfólio</a>
+            <a href="#contato" class="block py-2 px-6 text-gray-300 hover:bg-gray-800">Contato</a>
         </div>
     </header>
 
     <main>
         <!-- Seção de Início (Hero) -->
-        <section class="bg-hero min-h-screen flex items-center justify-center pt-20">
-            <div class="bg-hero-overlay w-full h-full absolute top-0 left-0"></div>
-            <div class="container mx-auto px-6 text-center relative z-10">
-                <h1 class="text-4xl md:text-6xl font-black text-white leading-tight mb-4 animate-fade-in-down">
-                    A sua barbearia merece um site que <span class="text-custom-gold">impressiona.</span>
+        <section class="hero-section relative h-screen flex items-center justify-center text-center">
+            <div class="hero-overlay absolute inset-0"></div>
+            <div class="relative z-10 px-6 animate-fade-in">
+                <h1 class="text-4xl md:text-6xl font-black text-white leading-tight mb-4">
+                    A sua barbearia merece um <span class="text-custom-gold">site que impressiona.</span>
                 </h1>
                 <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-8 animate-fade-in-up">
                     Crio sites modernos e funcionais que atraem mais clientes e agendamentos para o seu negócio.
@@ -85,14 +107,14 @@
             </div>
         </section>
 
-        <!-- Seção "Nossos Serviços" -->
-        <section id="servicos" class="py-20 bg-gray-900">
+        <!-- Seção "Meus Serviços" -->
+        <section id="servicos" class="py-20 bg-gray-800">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">Transformo sua <span class="text-custom-gold">Presença Online.</span></h2>
                 <div class="w-24 h-1 bg-custom-gold mx-auto mb-16"></div>
-                <div class="grid md:grid-cols-3 gap-12 max-w-6xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
                     <!-- Coluna 1: Design -->
-                    <div class="bg-gray-800 p-8 rounded-xl shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
+                    <div class="bg-gray-900 p-8 rounded-xl shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
                         <div class="flex justify-center items-center mb-4">
                             <i data-lucide="palette" class="w-12 h-12 text-custom-gold"></i>
                         </div>
@@ -100,7 +122,7 @@
                         <p class="text-gray-400">Crio um visual único que reflete a identidade da sua barbearia, desde o clássico ao moderno.</p>
                     </div>
                     <!-- Coluna 2: Funcionalidades -->
-                    <div class="bg-gray-800 p-8 rounded-xl shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
+                    <div class="bg-gray-900 p-8 rounded-xl shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
                         <div class="flex justify-center items-center mb-4">
                             <i data-lucide="cog" class="w-12 h-12 text-custom-gold"></i>
                         </div>
@@ -108,7 +130,7 @@
                         <p class="text-gray-400">Integro galeria de fotos, localização, formulário de contato e botões para agendamento online.</p>
                     </div>
                     <!-- Coluna 3: Otimização -->
-                    <div class="bg-gray-800 p-8 rounded-xl shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
+                    <div class="bg-gray-900 p-8 rounded-xl shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
                         <div class="flex justify-center items-center mb-4">
                             <i data-lucide="rocket" class="w-12 h-12 text-custom-gold"></i>
                         </div>
@@ -118,8 +140,8 @@
                 </div>
             </div>
         </section>
-        
-        <!-- Seção de Planos -->
+
+         <!-- Seção Planos -->
         <section id="planos" class="py-20 bg-gray-900">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">Escolha o <span class="text-custom-gold">Plano Ideal</span> para Você.</h2>
@@ -132,79 +154,78 @@
                         <h3 class="text-2xl font-bold mb-2 text-white">Ensaio Fotográfico IA</h3>
                         <p class="text-gray-400 mb-6 text-sm">Para o profissional que quer dar um upgrade imediato no seu perfil, com imagens de impacto que geram autoridade.</p>
                         <p class="text-4xl font-black mb-6 text-custom-gold">R$ 149<span class="text-lg font-normal text-gray-400">/pag. único</span></p>
-                        <ul class="text-left space-y-3 mb-8 text-gray-300">
+                        <ul class="text-left space-y-3 mb-8 text-gray-300 flex-grow">
                             <li class="flex items-start"><span class="text-green-400 mr-2">✅</span> <span><b>Ensaio Fotográfico IA</b> (5 imagens em alta resolução).</span></li>
                             <li class="flex items-start"><span class="text-green-400 mr-2">✅</span> <span>Você envia uma foto e escolhe o estilo.</span></li>
                             <li class="flex items-start"><span class="text-green-400 mr-2">✅</span> <span>Perfeito para perfil, posts e stories.</span></li>
                         </ul>
-                        <a href="https://wa.me/5541988214399?text=Olá!%20Tenho%20interesse%20no%20Pacote%20Ensaio%20Fotográfico%20IA." target="_blank" class="mt-auto w-full text-center px-6 py-3 bg-gray-700 text-white font-bold rounded-lg hover:bg-gray-600 transition-colors duration-300">Quero Este Pacote!</a>
+                        <a href="https://wa.me/5541988214399?text=Olá!%20Tenho%20interesse%20no%20pacote%20Ensaio%20Fotográfico%20IA." target="_blank" class="block w-full mt-auto px-6 py-3 bg-gray-700 text-white font-bold rounded-lg hover:bg-custom-gold hover:text-gray-900 transition-colors duration-300">Quero Este Pacote!</a>
                     </div>
-
+                    
                     <!-- Pacote Kit Impulso Digital -->
                     <div class="bg-gray-800 p-8 rounded-xl shadow-lg border border-gray-700 h-full flex flex-col">
                         <h3 class="text-2xl font-bold mb-2 text-white">Kit Impulso Digital</h3>
-                        <p class="text-gray-400 mb-6 text-sm flex-grow">Para o profissional que quer manter as redes sociais ativas e profissionais, com artes de impacto que geram engajamento.</p>
+                        <p class="text-gray-400 mb-6 text-sm">Para o profissional que quer manter as redes sociais ativas e profissionais, com artes de impacto que geram engajamento.</p>
                         <p class="text-4xl font-black mb-6 text-custom-gold">R$ 199<span class="text-lg font-normal text-gray-400">/pag. único</span></p>
-                        <ul class="text-left space-y-3 mb-8 text-gray-300">
+                        <ul class="text-left space-y-3 mb-8 text-gray-300 flex-grow">
                             <li class="flex items-start"><span class="text-green-400 mr-2">✅</span> <span><b>5 Artes</b> para o Feed do Instagram.</span></li>
                             <li class="flex items-start"><span class="text-green-400 mr-2">✅</span> <span><b>5 Artes</b> para os Stories.</span></li>
                             <li class="flex items-start"><span class="text-green-400 mr-2">✅</span> <span><b>1 Banner</b> de Campanha Principal.</span></li>
                             <li class="flex items-start"><span class="text-green-400 mr-2">✅</span> <span>Designs alinhados com sua Marca.</span></li>
                             <li class="flex items-start"><span class="text-green-400 mr-2">✅</span> <span>Arquivos em Alta Resolução.</span></li>
                         </ul>
-                        <a href="https://wa.me/5541988214399?text=Olá!%20Tenho%20interesse%20no%20Pacote%20Kit%20Impulso%20Digital." target="_blank" class="mt-auto w-full text-center px-6 py-3 bg-gray-700 text-white font-bold rounded-lg hover:bg-gray-600 transition-colors duration-300">Quero Este Pacote!</a>
+                        <a href="https://wa.me/5541988214399?text=Olá!%20Tenho%20interesse%20no%20pacote%20Kit%20Impulso%20Digital." target="_blank" class="block w-full mt-auto px-6 py-3 bg-gray-700 text-white font-bold rounded-lg hover:bg-custom-gold hover:text-gray-900 transition-colors duration-300">Quero Este Pacote!</a>
                     </div>
 
-                    <!-- Pacote 2: Site Profissional Essencial (Destaque) -->
+                    <!-- Pacote 2: Site Profissional Essencial -->
                     <div class="bg-gray-800 p-8 rounded-xl shadow-2xl border-2 border-custom-gold relative h-full flex flex-col">
                         <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-custom-gold text-gray-900 text-xs font-bold px-4 py-1 rounded-full uppercase tracking-wider">O mais escolhido</div>
                         <h3 class="text-2xl font-bold mb-2 text-white">Site Profissional Essencial</h3>
-                        <p class="text-gray-400 mb-6 text-sm flex-grow">Para o profissional que precisa de uma presença online organizada e confiável para centralizar suas informações e facilitar o agendamento.</p>
+                        <p class="text-gray-400 mb-6 text-sm">Para o profissional que precisa de uma presença online organizada e confiável para centralizar suas informações e facilitar o agendamento.</p>
                         <p class="text-4xl font-black mb-6 text-custom-gold">R$ 699<span class="text-lg font-normal text-gray-400">/pag. único</span></p>
-                        <ul class="text-left space-y-3 mb-8 text-gray-300">
+                        <ul class="text-left space-y-3 mb-8 text-gray-300 flex-grow">
                             <li class="flex items-start"><span class="text-green-400 mr-2">✅</span> <span><b>Mini-Site Profissional</b> (1 página).</span></li>
                             <li class="flex items-start"><span class="text-green-400 mr-2">✅</span> <span>Domínio .com.br (1º ano incluso).</span></li>
-                            <li class="flex items-start"><span class="text-green-400 mr-2">✅</span> <span>Botão de Agendamento via WhatsApp.</span></li>
+                            <li class="flex items-start"><span class="text-green-400 mr-2">✅</span> <span>Botão de Agendamento (WhatsApp).</span></li>
                             <li class="flex items-start"><span class="text-green-400 mr-2">✅</span> <span>Tabela de Serviços e Preços.</span></li>
-                             <li class="flex items-start"><span class="text-green-400 mr-2">✅</span> <span>Localização.</span></li>
-                            <li class="flex items-start"><span class="text-red-400 mr-2">❌</span> <span>Não inclui Ensaio Fotográfico IA.</span></li>
+                            <li class="flex items-start"><span class="text-green-400 mr-2">✅</span> <span>Localização.</span></li>
+                            <li class="flex items-start text-gray-500"><span class="text-red-500 mr-2">❌</span> <span>Não inclui Ensaio Fotográfico IA.</span></li>
                         </ul>
-                        <a href="https://wa.me/5541988214399?text=Olá!%20Tenho%20interesse%20no%20Pacote%20Site%20Profissional%20Essencial." target="_blank" class="mt-auto w-full text-center px-6 py-3 bg-custom-gold text-gray-900 font-bold rounded-lg hover:bg-yellow-500 transition-colors duration-300">Quero Este Pacote!</a>
+                        <a href="https://wa.me/5541988214399?text=Olá!%20Tenho%20interesse%20no%20pacote%20Site%20Profissional%20Essencial." target="_blank" class="block w-full mt-auto px-6 py-3 bg-custom-gold text-gray-900 font-bold rounded-lg hover:bg-yellow-500 transition-colors duration-300">Quero Este Pacote!</a>
                     </div>
-
+                    
                     <!-- Pacote 3: Kit Herói da Marca -->
                     <div class="bg-gray-800 p-8 rounded-xl shadow-lg border border-gray-700 h-full flex flex-col">
                         <h3 class="text-2xl font-bold mb-2 text-white">Kit Herói da Marca</h3>
-                        <p class="text-gray-400 mb-6 text-sm flex-grow">Para o profissional que quer o melhor, busca se destacar totalmente da concorrência e entende o poder de uma marca pessoal forte.</p>
+                        <p class="text-gray-400 mb-6 text-sm">Para o profissional que quer o melhor, busca se destacar totalmente da concorrência e entende o poder de uma marca pessoal forte.</p>
                         <p class="text-4xl font-black mb-6 text-custom-gold">R$ 799<span class="text-lg font-normal text-gray-400">/pag. único</span></p>
-                        <ul class="text-left space-y-3 mb-8 text-gray-300">
+                        <ul class="text-left space-y-3 mb-8 text-gray-300 flex-grow">
                              <li class="flex items-start"><span class="text-green-400 mr-2">✅</span> <span><b>Ensaio Fotográfico IA</b> (5 imagens).</span></li>
                             <li class="flex items-start"><span class="text-green-400 mr-2">✅</span> <span><b>Mini-Site Profissional</b> (1 página).</span></li>
                             <li class="flex items-start"><span class="text-green-400 mr-2">✅</span> <span>Domínio .com.br (1º ano incluso).</span></li>
-                            <li class="flex items-start"><span class="text-green-400 mr-2">✅</span> <span>Botão de Agendamento via WhatsApp.</span></li>
+                            <li class="flex items-start"><span class="text-green-400 mr-2">✅</span> <span>Botão de Agendamento (WhatsApp).</span></li>
                             <li class="flex items-start"><span class="text-green-400 mr-2">✅</span> <span>Tabela de Serviços e Preços.</span></li>
-                             <li class="flex items-start"><span class="text-green-400 mr-2">✅</span> <span>Localização.</span></li>
+                            <li class="flex items-start"><span class="text-green-400 mr-2">✅</span> <span>Localização.</span></li>
                         </ul>
-                         <a href="https://wa.me/5541988214399?text=Olá!%20Tenho%20interesse%20no%20Pacote%20Kit%20Herói%20da%20Marca." target="_blank" class="mt-auto w-full text-center px-6 py-3 bg-gray-700 text-white font-bold rounded-lg hover:bg-gray-600 transition-colors duration-300">Quero Este Pacote!</a>
+                        <a href="https://wa.me/5541988214399?text=Olá!%20Tenho%20interesse%20no%20pacote%20Kit%20Herói%20da%20Marca." target="_blank" class="block w-full mt-auto px-6 py-3 bg-gray-700 text-white font-bold rounded-lg hover:bg-custom-gold hover:text-gray-900 transition-colors duration-300">Quero Este Pacote!</a>
                     </div>
 
                 </div>
             </div>
         </section>
 
-        <!-- Seção de Pagamento -->
+        <!-- Seção Pagamento -->
         <section id="pagamento" class="py-20 bg-gray-800">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">Pagamento Facilitado e <span class="text-custom-gold">100% Seguro</span></h2>
-                <p class="text-lg text-gray-400 max-w-3xl mx-auto mb-16">
-                    Para sua comodidade e segurança, o pagamento do seu projeto é feito de forma simples e transparente. Trabalho com as opções mais confiáveis do mercado. Confira abaixo:
-                </p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                <div class="w-24 h-1 bg-custom-gold mx-auto mb-10"></div>
+                <p class="text-gray-400 max-w-3xl mx-auto mb-16">Para sua comodidade e segurança, o pagamento do seu projeto é feito de forma simples e transparente. Trabalho com as opções mais confiáveis do mercado. Confira abaixo:</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
                     <!-- Coluna 1: PIX -->
                     <div class="bg-gray-900 p-8 rounded-xl shadow-lg border border-gray-700">
                         <h3 class="text-2xl font-bold text-white mb-4">À Vista via PIX</h3>
-                        <p class="text-gray-400 mb-6">A forma mais rápida e prática de dar o pontapé inicial no seu projeto. A confirmação do pagamento é instantânea e a gente já pode começar em seguida!</p>
-                        <ul class="space-y-3 text-left mb-8">
+                        <p class="text-gray-400 mb-6">A forma mais rápida e prática de dar o pontapé inicial no seu projeto. A confirmação do pagamento é instantânea!</p>
+                        <ul class="text-left space-y-3 mb-8">
                             <li class="flex items-center text-gray-300"><i data-lucide="check-circle" class="w-5 h-5 mr-3 text-green-400"></i>Praticidade e Rapidez</li>
                             <li class="flex items-center text-gray-300"><i data-lucide="check-circle" class="w-5 h-5 mr-3 text-green-400"></i>Confirmação Imediata</li>
                             <li class="flex items-center text-gray-300"><i data-lucide="check-circle" class="w-5 h-5 mr-3 text-green-400"></i>100% Seguro</li>
@@ -214,9 +235,9 @@
                     <!-- Coluna 2: Cartão de Crédito -->
                     <div class="bg-gray-900 p-8 rounded-xl shadow-lg border border-gray-700">
                         <h3 class="text-2xl font-bold text-white mb-4">Parcelado no Cartão de Crédito</h3>
-                        <p class="text-gray-400 mb-6">Prefere dividir o investimento? Sem problemas! Você pode parcelar em até 12x via Mercado Pago, um dos ambientes mais protegidos do Brasil. É simples, rápido e você escolhe as parcelas na hora.</p>
-                        <ul class="space-y-3 text-left mb-8">
-                            <li class="flex items-center text-gray-300"><i data-lucide="check-circle" class="w-5 h-5 mr-3 text-green-400"></i>Parcelamento em até 12x</li>
+                        <p class="text-gray-400 mb-6">Prefere dividir? Parcele em até 12x via link seguro do Mercado Pago, um dos ambientes mais protegidos do Brasil.</p>
+                        <ul class="text-left space-y-3 mb-8">
+                             <li class="flex items-center text-gray-300"><i data-lucide="check-circle" class="w-5 h-5 mr-3 text-green-400"></i>Parcelamento em até 12x</li>
                             <li class="flex items-center text-gray-300"><i data-lucide="check-circle" class="w-5 h-5 mr-3 text-green-400"></i>Segurança de uma grande plataforma</li>
                             <li class="flex items-center text-gray-300"><i data-lucide="check-circle" class="w-5 h-5 mr-3 text-green-400"></i>Flexibilidade para o seu orçamento</li>
                         </ul>
@@ -232,38 +253,35 @@
                         </div>
                     </div>
                 </div>
-                <div class="mt-16">
-                     <h3 class="text-2xl font-bold text-white mb-2">Ficou com alguma dúvida?</h3>
-                     <p class="text-gray-400">Qualquer pergunta sobre o processo de pagamento, é só me chamar no WhatsApp. Estou aqui para ajudar!</p>
-                </div>
+                <p class="mt-12 text-gray-400">Ficou com alguma dúvida? Qualquer pergunta sobre o processo de pagamento, é só me chamar no WhatsApp.</p>
             </div>
         </section>
 
         <!-- Seção "Portfólio" -->
         <section id="portfolio" class="py-20 bg-gray-900">
             <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Meus <span class="text-custom-gold">Designs.</span></h2>
-                 <p class="text-lg text-gray-400 max-w-2xl mx-auto mb-16">Aqui estão alguns conceitos de design que mostram meu estilo e o que posso criar para você.</p>
-                <div class="grid md:grid-cols-3 gap-8">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Alguns dos meus <span class="text-custom-gold">Designs Conceituais.</span></h2>
+                <div class="w-24 h-1 bg-custom-gold mx-auto mb-16"></div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <!-- Imagem 1 -->
-                    <div class="group relative rounded-lg overflow-hidden shadow-lg">
+                    <div class="relative group rounded-lg overflow-hidden shadow-lg">
                         <img src="https://i.imgur.com/QJYnCtt.png" alt="Design de site para barbearia de luxo" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                            <h3 class="text-white text-2xl font-bold">Conceito 'Elite'</h3>
+                        <div class="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <h3 class="text-2xl font-bold text-white">Conceito "Elite"</h3>
                         </div>
                     </div>
                     <!-- Imagem 2 -->
-                    <div class="group relative rounded-lg overflow-hidden shadow-lg">
+                    <div class="relative group rounded-lg overflow-hidden shadow-lg">
                         <img src="https://i.imgur.com/0afsRxF.png" alt="Design de site para barbearia retrô" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
-                         <div class="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                            <h3 class="text-white text-2xl font-bold">Conceito 'Vintage'</h3>
+                        <div class="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <h3 class="text-2xl font-bold text-white">Conceito "Vintage"</h3>
                         </div>
                     </div>
                     <!-- Imagem 3 -->
-                    <div class="group relative rounded-lg overflow-hidden shadow-lg">
+                    <div class="relative group rounded-lg overflow-hidden shadow-lg">
                         <img src="https://i.imgur.com/NCnyT3K.png" alt="Design de site para barbearia moderna" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
-                         <div class="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                            <h3 class="text-white text-2xl font-bold">Conceito 'Moderno'</h3>
+                        <div class="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <h3 class="text-2xl font-bold text-white">Conceito "Moderno"</h3>
                         </div>
                     </div>
                 </div>
@@ -271,11 +289,12 @@
         </section>
 
         <!-- Seção de Contato -->
-        <section id="contato" class="py-20 bg-gray-900">
+        <section id="contato" class="py-20 bg-gray-800">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">Vamos conversar e dar um <span class="text-custom-gold">Impulso</span> no seu negócio?</h2>
-                <p class="text-lg text-gray-400 mb-12">Entre em contato para um orçamento sem compromisso.</p>
-                
+                <div class="w-24 h-1 bg-custom-gold mx-auto mb-10"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto mb-12">Entre em contato para um orçamento sem compromisso.</p>
+
                 <div class="flex flex-col justify-center items-center space-y-8 w-full max-w-4xl mx-auto">
                     <!-- Linha para Telefone e Email -->
                     <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-12 text-lg">
@@ -288,6 +307,7 @@
                             <span>awakecosta.digital@gmail.com</span>
                         </a>
                     </div>
+
                     <!-- Linha para Localização e Mapa -->
                     <div class="text-center w-full">
                          <div class="flex items-center justify-center text-gray-300 mb-6 text-lg">
@@ -304,18 +324,19 @@
     </main>
 
     <!-- Rodapé -->
-    <footer class="bg-gray-900 border-t border-gray-800">
-        <div class="container mx-auto px-6 py-8 text-center text-gray-500">
-            <p class="text-2xl font-black text-white mb-2">Impulso <span class="text-custom-gold">Barber</span></p>
-            <p class="mb-4">"Criando o palco digital para a sua arte."</p>
-            <p class="text-sm">&copy; 2025 Impulso Barber. Todos os direitos reservados.</p>
+    <footer class="bg-gray-900 py-8">
+        <div class="container mx-auto px-6 text-center text-gray-500">
+            <p class="text-lg font-bold text-white mb-2">Impulso <span class="text-custom-gold">Barber</span></p>
+            <p class="mb-2">© 2025 Impulso Barber. Todos os direitos reservados.</p>
+            <p class="italic">"Criando o palco digital para a sua arte."</p>
         </div>
     </footer>
 
     <script>
+        // Lucide Icons
         lucide.createIcons();
 
-        // Script para menu mobile
+        // Mobile Menu
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
         const mobileMenuLinks = mobileMenu.querySelectorAll('a');
@@ -323,8 +344,8 @@
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
-        
-        // Fecha o menu quando um link é clicado
+
+        // Fecha o menu ao clicar em um link
         mobileMenuLinks.forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
@@ -333,14 +354,4 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
 
